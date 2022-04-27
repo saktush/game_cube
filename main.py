@@ -18,17 +18,18 @@ def main():
                 break
 
             elif user_input < 0 or user_input > 6:
-                print('Use only numbers from 1 to 6!')
-                continue
+                raise ValueError
 
         except ValueError:
             print('Use only numbers from 1 to 6!')
 
-        if get_random() == user_input:
-            print('you win')
-
         else:
-            print('You loose')
+            if get_random() == user_input:
+                print('you win')
+
+            else:
+                print('You loose')
+
 
 if __name__ == '__main__':
     main()
