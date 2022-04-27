@@ -7,6 +7,8 @@ def get_random():
 
 
 def main():
+    print('Hello, pretty!')
+
     while True:
         try:
             user_input = int(input('Give number 1 to 6 to play or 0 to exit: '))
