@@ -1,34 +1,52 @@
 import random
+import os
 
 
 def get_random():
-    cube_number = random.randint(1, 6)
-    return cube_number
+    number = random.randint(1, 6)
+    return number
+
+
+def max_of(a,b):
+    return int((a + b + abs(a - b)) / 2)
+
+
+def min_of(a, b):
+    return int((a + b - abs(a - b)) / 2)
 
 
 def main():
-    print('Hello, pretty!')
+    vin = 0
+    loose = 0
+    print('Hello, pretty!\n')
 
     while True:
         try:
             user_input = int(input('Give number 1 to 6 to play or 0 to exit: '))
 
             if user_input == 0:
+
+                if vin != 0 and loose != 0:
+                    print('Your luck is', round((min_of(vin, loose) / max_of(vin, loose)) * 100), '%')
+
                 print('Bye')
+
                 break
 
             elif user_input < 0 or user_input > 6:
                 raise ValueError
 
         except ValueError:
-            print('Use only numbers from 1 to 6!')
+            print('Use only numbers from 1 to 6!\n')
 
         else:
             if get_random() == user_input:
                 print('you win')
+                vin += 1
 
             else:
                 print('You loose')
+                loose += 1
 
 
 if __name__ == '__main__':
