@@ -1,5 +1,5 @@
 import random
-import os
+import time
 
 
 def get_random():
@@ -7,7 +7,7 @@ def get_random():
     return number
 
 
-def max_of(a,b):
+def max_of(a, b):
     return int((a + b + abs(a - b)) / 2)
 
 
@@ -19,15 +19,17 @@ def main():
     vin = 0
     loose = 0
     print('Hello, pretty!\n')
+    start_time = time.time()
 
     while True:
         try:
-            user_input = int(input('Give number 1 to 6 to play or 0 to exit: '))
+            user_input = int(input('Give a number from 1 to 6 to play or 0 to exit: '))
 
             if user_input == 0:
 
                 if vin != 0 and loose != 0:
-                    print('Your luck is', round((min_of(vin, loose) / max_of(vin, loose)) * 100), '%')
+                    print(f'\nYou are {round((min_of(vin, loose) / max_of(vin, loose)) * 100)}% lucky!')
+                    print(f'It took {round(time.time() - start_time)} seconds to find it! \n')
 
                 print('Bye')
 
@@ -41,12 +43,14 @@ def main():
 
         else:
             if get_random() == user_input:
-                print('you win')
+                print('You win')
                 vin += 1
 
             else:
                 print('You loose')
                 loose += 1
+
+        time.sleep(0.3)
 
 
 if __name__ == '__main__':
