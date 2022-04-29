@@ -27,7 +27,7 @@ def main():
 
             if user_input == 0:
 
-                if vin != 0 and loose != 0:
+                if vin and loose != 0:
                     print(f'\nYou are {round((min_of(vin, loose) / max_of(vin, loose)) * 100)}% lucky!')
                     print(f'It took {round(time.time() - start_time)} seconds to find it! \n')
 
