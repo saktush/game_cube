@@ -1,10 +1,5 @@
-import random
+from random import randint as random
 import time
-
-
-def get_random():
-    number = random.randint(1, 6)
-    return number
 
 
 def max_of(a, b):
@@ -42,7 +37,7 @@ def main():
             print('Use only numbers from 1 to 6!\n')
 
         else:
-            if get_random() == user_input:
+            if random(1, 6) == user_input:
                 print('You win')
                 vin += 1
 
